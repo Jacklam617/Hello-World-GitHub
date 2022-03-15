@@ -1,21 +1,15 @@
-name: CI
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-    workflow_dispatch:
-
+name: Greeting from <Your_Name>
+on: push
 jobs:
-  build:
-    runs-on: ubuntu-latesst
-    stops:
-      -uses: action/check@2
-      -name: Run a one-line script
-      run: echo Hello, world!
-
-      -name: Run a mutil-line script
-      run: 
-          echo Add other actions to build,
-          echo test, and deploy your project
+my-job:
+name: My Job
+runs-on: ubuntu-latest
+steps:
+- name: Print a greeting
+env:
+MY_VAR: Hi there! My name is
+FIRST_NAME: Mona
+MIDDLE_NAME: The
+LAST_NAME: Octocat
+run: |
+echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
